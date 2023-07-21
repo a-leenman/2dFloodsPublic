@@ -27,7 +27,7 @@ gettinginfo = F # get statistics calculated over region? Note this slows things 
 make_plots = T # make pretty interactive maps of change within the time/space filters you
 # set below.
 
-window_length <- 20 # n days to search for imagery (before + after flood)
+window_length <- 25 # n days to search for imagery (before + after flood)
 start_date <- '2020-08-20' # flood start date
 end_date <- '2020-12-16' # flood end date
 # set vertices of polygon around your Area of Interest (AOI) (or import a polygon)
@@ -41,7 +41,7 @@ AOI <- st_polygon(list(matrix(c(-73.93,7.31243,
 
 channel_belt = T # do you want to compute channel maps for channel belt (including bars)?
 area_keep_threshold = 0.2 # minimum proportion of polygon that must have cloud-free data
-snowthresh <- 0.8 # what proportion of cloud-free AOI must be snow covered before AOI is rejected? must be high as water often misclassified as snow
+snowthresh <- 0.6 # what proportion of cloud-free AOI must be snow covered before AOI is rejected? must be high as water often misclassified as snow
 MAX_CLOUD_PROBABILITY <- 10 # max probability of cloud retained when masking clouds
 # lower values = less clouds but some misclassification (and therefore masking out) of water/sediment as clouds
 # higher values = less mis-masking of water, but more mis-classification of mid-river clouds as land (and therefore spurious change detection)
@@ -53,7 +53,7 @@ months_to_check <- 1:24 # how many times after the flood should be checked for w
 ndsi_param <- 0.5  # for snow detection - threshold of 0.4 used by Hofmeister et al 2022 JoHX
 mndwi_param <- -0.40;
 ndvi_param <- 0.20;
-cleaning_pixels <- 500; # n connected pixels removed
+cleaning_pixels <- 10; # n connected pixels removed
 run_cleaning <- T # should neighborhood-based noise filter be run? 
 
 # don't edit below this line
